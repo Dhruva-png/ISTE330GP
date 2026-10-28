@@ -1,0 +1,71 @@
+digraph AppClasses {
+graph [rankdir=TB, label="UML Class Diagram - Application Structure (initial design)\nModel classes are shown in the separate domain model diagram", newrank=true];
+graph [fontname="Helvetica", fontsize=20, labelloc=t, pad=0.4, nodesep=0.5, ranksep=0.9];
+node [shape=plaintext, fontname="Helvetica", fontsize=10];
+edge [fontname="Helvetica", fontsize=9, color="#444444"];
+
+subgraph cluster_0 { label="package app"; style="rounded,dashed"; color="#888888"; fontsize=12;
+Main [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;entry point&raquo;</FONT><BR/><B>Main</B></TD></TR><TR><TD ALIGN="LEFT"> </TD></TR><TR><TD ALIGN="LEFT">+main(args: String[]): void<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+}
+subgraph cluster_1 { label="package ui"; style="rounded,dashed"; color="#888888"; fontsize=12;
+LoginScreen [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;UI&raquo;</FONT><BR/><B>LoginScreen</B></TD></TR><TR><TD ALIGN="LEFT"> </TD></TR><TR><TD ALIGN="LEFT">+show(): UserAccount<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+DirectorMenu [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;UI&raquo;</FONT><BR/><B>DirectorMenu</B></TD></TR><TR><TD ALIGN="LEFT">-user: UserAccount<BR ALIGN='LEFT'/></TD></TR><TR><TD ALIGN="LEFT">+show(): void<BR ALIGN='LEFT'/>-manageTournaments()<BR ALIGN='LEFT'/>-scheduleMatches()<BR ALIGN='LEFT'/>-recordResult()<BR ALIGN='LEFT'/>-registerTeam()<BR ALIGN='LEFT'/>-createAccount()<BR ALIGN='LEFT'/>-search()<BR ALIGN='LEFT'/>-viewReports()<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+CoachMenu [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;UI&raquo;</FONT><BR/><B>CoachMenu</B></TD></TR><TR><TD ALIGN="LEFT">-user: UserAccount<BR ALIGN='LEFT'/></TD></TR><TR><TD ALIGN="LEFT">+show(): void<BR ALIGN='LEFT'/>-viewMyTeams()<BR ALIGN='LEFT'/>-addPlayerToTeam()<BR ALIGN='LEFT'/>-removePlayer()<BR ALIGN='LEFT'/>-editTeamDetails()<BR ALIGN='LEFT'/>-registerForTournament()<BR ALIGN='LEFT'/>-viewReports()<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+PlayerMenu [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;UI&raquo;</FONT><BR/><B>PlayerMenu</B></TD></TR><TR><TD ALIGN="LEFT">-user: UserAccount<BR ALIGN='LEFT'/></TD></TR><TR><TD ALIGN="LEFT">+show(): void<BR ALIGN='LEFT'/>-viewProfile()<BR ALIGN='LEFT'/>-updateProfile()<BR ALIGN='LEFT'/>-viewMyTeams()<BR ALIGN='LEFT'/>-viewMySchedule()<BR ALIGN='LEFT'/>-viewMyStats()<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+}
+subgraph cluster_2 { label="package service / util"; style="rounded,dashed"; color="#888888"; fontsize=12;
+AuthService [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><B>AuthService</B></TD></TR><TR><TD ALIGN="LEFT">-userDao: UserAccountDAO<BR ALIGN='LEFT'/></TD></TR><TR><TD ALIGN="LEFT">+login(username: String, password: String): UserAccount<BR ALIGN='LEFT'/>+createAccount(username, password, role, firstName, lastName): int<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+PasswordHasher [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;utility&raquo;</FONT><BR/><B>PasswordHasher</B></TD></TR><TR><TD ALIGN="LEFT"> </TD></TR><TR><TD ALIGN="LEFT">+hash(salt: String, password: String): String<BR ALIGN='LEFT'/>+generateSalt(): String<BR ALIGN='LEFT'/>+matches(salt, password, storedHash): boolean<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+ReportPrinter [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;utility&raquo;</FONT><BR/><B>ReportPrinter</B></TD></TR><TR><TD ALIGN="LEFT"> </TD></TR><TR><TD ALIGN="LEFT">+print(table: ReportTable): void<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+}
+subgraph cluster_3 { label="package dao"; style="rounded,dashed"; color="#888888"; fontsize=12;
+UserAccountDAO [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;DAO&raquo;</FONT><BR/><B>UserAccountDAO</B></TD></TR><TR><TD ALIGN="LEFT"> </TD></TR><TR><TD ALIGN="LEFT">+findByUsername(username): UserAccount<BR ALIGN='LEFT'/>+insert(account): int<BR ALIGN='LEFT'/>+insertProfile(role, userId, firstName, lastName): int<BR ALIGN='LEFT'/>+updateEmail(id, email): boolean<BR ALIGN='LEFT'/>+setActive(id, active): boolean<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+GameDAO [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;DAO&raquo;</FONT><BR/><B>GameDAO</B></TD></TR><TR><TD ALIGN="LEFT"> </TD></TR><TR><TD ALIGN="LEFT">+findAll(): List&lt;Game&gt;<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+TournamentDAO [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;DAO&raquo;</FONT><BR/><B>TournamentDAO</B></TD></TR><TR><TD ALIGN="LEFT"> </TD></TR><TR><TD ALIGN="LEFT">+findAll(): List&lt;Tournament&gt;<BR ALIGN='LEFT'/>+search(name): List&lt;Tournament&gt;<BR ALIGN='LEFT'/>+insert(t): int<BR ALIGN='LEFT'/>+update(t): boolean<BR ALIGN='LEFT'/>+delete(id): boolean<BR ALIGN='LEFT'/>+registerTeam(tournamentId, teamId): ProcedureResult<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+TeamDAO [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;DAO&raquo;</FONT><BR/><B>TeamDAO</B></TD></TR><TR><TD ALIGN="LEFT"> </TD></TR><TR><TD ALIGN="LEFT">+findByCoach(coachId): List&lt;Team&gt;<BR ALIGN='LEFT'/>+findByPlayer(playerId): List&lt;Team&gt;<BR ALIGN='LEFT'/>+search(name): List&lt;Team&gt;<BR ALIGN='LEFT'/>+insert(t): int<BR ALIGN='LEFT'/>+update(t): boolean<BR ALIGN='LEFT'/>+delete(id): boolean<BR ALIGN='LEFT'/>+addPlayer(teamId, playerId, role): ProcedureResult<BR ALIGN='LEFT'/>+removePlayer(teamId, playerId): boolean<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+PlayerDAO [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;DAO&raquo;</FONT><BR/><B>PlayerDAO</B></TD></TR><TR><TD ALIGN="LEFT"> </TD></TR><TR><TD ALIGN="LEFT">+findByUserId(userId): Player<BR ALIGN='LEFT'/>+search(text): List&lt;Player&gt;<BR ALIGN='LEFT'/>+insert(p): int<BR ALIGN='LEFT'/>+update(p): boolean<BR ALIGN='LEFT'/>+delete(id): boolean<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+MatchDAO [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;DAO&raquo;</FONT><BR/><B>MatchDAO</B></TD></TR><TR><TD ALIGN="LEFT"> </TD></TR><TR><TD ALIGN="LEFT">+findByTournament(id): List&lt;TournamentMatch&gt;<BR ALIGN='LEFT'/>+insert(m): int<BR ALIGN='LEFT'/>+update(m): boolean<BR ALIGN='LEFT'/>+delete(id): boolean<BR ALIGN='LEFT'/>+recordResult(matchId, home, away): ProcedureResult<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+ReportDAO [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><FONT POINT-SIZE="9">&laquo;DAO&raquo;</FONT><BR/><B>ReportDAO</B></TD></TR><TR><TD ALIGN="LEFT"> </TD></TR><TR><TD ALIGN="LEFT">+standings(tournamentId): ReportTable<BR ALIGN='LEFT'/>+matchSchedule(tournamentId): ReportTable<BR ALIGN='LEFT'/>+registrations(tournamentId): ReportTable<BR ALIGN='LEFT'/>+teamRoster(teamId): ReportTable<BR ALIGN='LEFT'/>+playerStatistics(): ReportTable<BR ALIGN='LEFT'/>+playerStatistics(playerId): ReportTable<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+ProcedureResult [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><B>ProcedureResult</B></TD></TR><TR><TD ALIGN="LEFT">-success: boolean<BR ALIGN='LEFT'/>-message: String<BR ALIGN='LEFT'/></TD></TR><TR><TD ALIGN="LEFT">+isSuccess(): boolean<BR ALIGN='LEFT'/>+getMessage(): String<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+ReportTable [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><B>ReportTable</B></TD></TR><TR><TD ALIGN="LEFT">-title: String<BR ALIGN='LEFT'/>-columns: List&lt;String&gt;<BR ALIGN='LEFT'/>-rows: List&lt;String[]&gt;<BR ALIGN='LEFT'/></TD></TR><TR><TD ALIGN="LEFT">+getColumns(): List&lt;String&gt;<BR ALIGN='LEFT'/>+getRows(): List&lt;String[]&gt;<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+}
+subgraph cluster_4 { label="package db"; style="rounded,dashed"; color="#888888"; fontsize=12;
+DatabaseConnection [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#2B5C8A" BGCOLOR="#FFFFFF"><TR><TD BGCOLOR="#EAF1FA"><B>DatabaseConnection</B></TD></TR><TR><TD ALIGN="LEFT">-URL: String = jdbc:mysql://localhost:3306/esports_tms<BR ALIGN='LEFT'/>-USER: String<BR ALIGN='LEFT'/>-PASSWORD: String<BR ALIGN='LEFT'/></TD></TR><TR><TD ALIGN="LEFT">+getConnection(): Connection<BR ALIGN='LEFT'/>+testConnection(): boolean<BR ALIGN='LEFT'/></TD></TR></TABLE>>];
+}
+Main -> LoginScreen [style=dashed, arrowhead=vee];
+Main -> DirectorMenu [style=dashed, arrowhead=vee];
+Main -> CoachMenu [style=dashed, arrowhead=vee];
+Main -> PlayerMenu [style=dashed, arrowhead=vee];
+LoginScreen -> AuthService [style=dashed, arrowhead=vee];
+AuthService -> UserAccountDAO [style=dashed, arrowhead=vee];
+AuthService -> PasswordHasher [style=dashed, arrowhead=vee];
+DirectorMenu -> TournamentDAO [style=dashed, arrowhead=vee];
+DirectorMenu -> MatchDAO [style=dashed, arrowhead=vee];
+DirectorMenu -> ReportDAO [style=dashed, arrowhead=vee];
+DirectorMenu -> AuthService [style=dashed, arrowhead=vee];
+DirectorMenu -> GameDAO [style=dashed, arrowhead=vee];
+DirectorMenu -> TeamDAO [style=dashed, arrowhead=vee];
+DirectorMenu -> PlayerDAO [style=dashed, arrowhead=vee];
+CoachMenu -> TeamDAO [style=dashed, arrowhead=vee];
+CoachMenu -> TournamentDAO [style=dashed, arrowhead=vee];
+CoachMenu -> ReportDAO [style=dashed, arrowhead=vee];
+CoachMenu -> PlayerDAO [style=dashed, arrowhead=vee];
+PlayerMenu -> PlayerDAO [style=dashed, arrowhead=vee];
+PlayerMenu -> TeamDAO [style=dashed, arrowhead=vee];
+PlayerMenu -> ReportDAO [style=dashed, arrowhead=vee];
+ReportDAO -> ReportTable [style=dashed, arrowhead=vee];
+ReportPrinter -> ReportTable [style=dashed, arrowhead=vee];
+DirectorMenu -> ReportPrinter [style=dashed, arrowhead=vee];
+CoachMenu -> ReportPrinter [style=dashed, arrowhead=vee];
+PlayerMenu -> ReportPrinter [style=dashed, arrowhead=vee];
+TournamentDAO -> ProcedureResult [style=dashed, arrowhead=vee];
+TeamDAO -> ProcedureResult [style=dashed, arrowhead=vee];
+MatchDAO -> ProcedureResult [style=dashed, arrowhead=vee];
+UserAccountDAO -> DatabaseConnection [style=dashed, arrowhead=vee, color="#2B5C8A"];
+GameDAO -> DatabaseConnection [style=dashed, arrowhead=vee, color="#2B5C8A"];
+TournamentDAO -> DatabaseConnection [style=dashed, arrowhead=vee, color="#2B5C8A"];
+TeamDAO -> DatabaseConnection [style=dashed, arrowhead=vee, color="#2B5C8A"];
+PlayerDAO -> DatabaseConnection [style=dashed, arrowhead=vee, color="#2B5C8A"];
+MatchDAO -> DatabaseConnection [style=dashed, arrowhead=vee, color="#2B5C8A"];
+ReportDAO -> DatabaseConnection [style=dashed, arrowhead=vee, color="#2B5C8A"];
+}

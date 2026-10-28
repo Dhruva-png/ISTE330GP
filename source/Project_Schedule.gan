@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ISTE330 Esports Tournament Management System" company="RIT Dubai - ISTE 330 Group 1" webLink="" view-date="2026-10-26" view-index="0" gantt-divider-location="420" resource-divider-location="300" version="3.2.3240" locale="en">
+<description><![CDATA[Project schedule for the ISTE 330 group project, Milestones 1-3.]]></description>
+<view zooming-state="default:3" id="gantt-chart"><field id="tpd3" name="Name" width="260" order="0"/><field id="tpd4" name="Begin date" width="90" order="1"/><field id="tpd5" name="End date" width="90" order="2"/></view>
+<view id="resource-table"><field id="0" name="Name" width="200" order="0"/><field id="1" name="Default role" width="120" order="1"/></view>
+<calendars><day-types><day-type id="0"/><day-type id="1"/><default-week id="1" name="default" sun="0" mon="0" tue="0" wed="0" thu="0" fri="0" sat="0"/><only-show-weekends value="false"/><overriden-day-types/><days/></day-types></calendars>
+<tasks empty-milestones="true">
+<taskproperties><taskproperty id="tpd0" name="type" type="default" valuetype="icon"/><taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/><taskproperty id="tpd2" name="info" type="default" valuetype="icon"/><taskproperty id="tpd3" name="name" type="default" valuetype="text"/><taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/><taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/><taskproperty id="tpd6" name="duration" type="default" valuetype="int"/><taskproperty id="tpd7" name="completion" type="default" valuetype="int"/><taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/><taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/></taskproperties>
+<task id="100" name="Milestone 1 - Planning and Design (due 30 Oct)" color="#2B5C8A" meeting="false" start="2026-10-28" duration="3" complete="0" expand="true">
+<task id="1" name="Rewrite specification in own words (A)" color="#2B5C8A" meeting="false" start="2026-10-28" duration="2" complete="0" expand="true">
+<depend id="6" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="2" name="ERD and normalization (B)" color="#2B5C8A" meeting="false" start="2026-10-28" duration="2" complete="0" expand="true">
+<depend id="3" type="1" difference="0" hardness="Rubber"/>
+<depend id="4" type="1" difference="0" hardness="Rubber"/>
+</task>
+<task id="3" name="Data dictionary (B, C)" color="#2B5C8A" meeting="false" start="2026-10-29" duration="1" complete="0" expand="true">
+<depend id="6" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="4" name="UML class and use case diagrams (D, E)" color="#2B5C8A" meeting="false" start="2026-10-28" duration="2" complete="0" expand="true">
+<depend id="6" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="5" name="Gantt, risks, feature list, team roles (A)" color="#2B5C8A" meeting="false" start="2026-10-28" duration="2" complete="0" expand="true">
+<depend id="6" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="6" name="Consistency review and compile PDF (A, all)" color="#2B5C8A" meeting="false" start="2026-10-30" duration="1" complete="0" expand="true">
+<depend id="7" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="7" name="MILESTONE 1 DUE (All)" color="#2B5C8A" meeting="true" start="2026-10-30" duration="0" complete="0" expand="true">
+<depend id="8" type="2" difference="0" hardness="Rubber"/>
+</task>
+</task>
+<task id="101" name="Milestone 2 - Core Build and Demo (due 18 Nov)" color="#3A7A3A" meeting="false" start="2026-10-31" duration="19" complete="0" expand="true">
+<task id="8" name="Finalize schema SQL (tables, keys, constraints) (B)" color="#3A7A3A" meeting="false" start="2026-10-31" duration="4" complete="0" expand="true">
+<depend id="9" type="1" difference="0" hardness="Rubber"/>
+<depend id="10" type="1" difference="0" hardness="Rubber"/>
+</task>
+<task id="9" name="Sample data for all tables (C)" color="#3A7A3A" meeting="false" start="2026-11-02" duration="5" complete="0" expand="true">
+<depend id="12" type="2" difference="0" hardness="Rubber"/>
+<depend id="14" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="10" name="DatabaseConnection, PasswordHasher, login (D)" color="#3A7A3A" meeting="false" start="2026-11-01" duration="6" complete="0" expand="true">
+<depend id="11" type="1" difference="0" hardness="Rubber"/>
+<depend id="13" type="1" difference="0" hardness="Rubber"/>
+</task>
+<task id="11" name="CRUD DAOs with PreparedStatements (D)" color="#3A7A3A" meeting="false" start="2026-11-05" duration="8" complete="0" expand="true">
+<depend id="15" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="12" name="sp_RegisterTeamForTournament + CallableStatement (C, D)" color="#3A7A3A" meeting="false" start="2026-11-07" duration="5" complete="0" expand="true">
+<depend id="15" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="13" name="Login screen and role menus (E)" color="#3A7A3A" meeting="false" start="2026-11-03" duration="9" complete="0" expand="true">
+<depend id="15" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="14" name="Two reports (standings, schedule) (C, E)" color="#3A7A3A" meeting="false" start="2026-11-08" duration="6" complete="0" expand="true">
+<depend id="15" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="15" name="Integration test on a clean machine (All)" color="#3A7A3A" meeting="false" start="2026-11-14" duration="3" complete="0" expand="true">
+<depend id="16" type="1" difference="0" hardness="Rubber"/>
+</task>
+<task id="16" name="Update UML, demo script and rehearsal (A)" color="#3A7A3A" meeting="false" start="2026-11-15" duration="3" complete="0" expand="true">
+<depend id="17" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="17" name="MILESTONE 2 DEMO (All)" color="#3A7A3A" meeting="true" start="2026-11-18" duration="0" complete="0" expand="true">
+<depend id="18" type="2" difference="0" hardness="Rubber"/>
+<depend id="19" type="2" difference="0" hardness="Rubber"/>
+<depend id="20" type="2" difference="0" hardness="Rubber"/>
+<depend id="22" type="2" difference="0" hardness="Rubber"/>
+</task>
+</task>
+<task id="102" name="Milestone 3 - Completion and Submission (due 2 Dec)" color="#C77700" meeting="false" start="2026-11-19" duration="14" complete="0" expand="true">
+<task id="18" name="Remaining procedures and views (C)" color="#C77700" meeting="false" start="2026-11-19" duration="5" complete="0" expand="true">
+<depend id="21" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="19" name="Full CRUD, all CallableStatements, error handling (D)" color="#C77700" meeting="false" start="2026-11-19" duration="7" complete="0" expand="true">
+<depend id="23" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="20" name="All menus and 5+ reports (E)" color="#C77700" meeting="false" start="2026-11-19" duration="7" complete="0" expand="true">
+<depend id="23" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="21" name="Merge into ONE SQL script and test from scratch (B)" color="#C77700" meeting="false" start="2026-11-24" duration="4" complete="0" expand="true">
+<depend id="23" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="22" name="README, startup guide, test credentials (A)" color="#C77700" meeting="false" start="2026-11-22" duration="6" complete="0" expand="true">
+</task>
+<task id="23" name="CODE FREEZE (All)" color="#C77700" meeting="true" start="2026-11-28" duration="0" complete="0" expand="true">
+<depend id="24" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="24" name="Clean-machine deployment test (2 laptops) (A, E)" color="#C77700" meeting="false" start="2026-11-28" duration="3" complete="0" expand="true">
+<depend id="25" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="25" name="Final packaging and early submission (A)" color="#C77700" meeting="false" start="2026-12-01" duration="1" complete="0" expand="true">
+<depend id="26" type="2" difference="0" hardness="Rubber"/>
+</task>
+<task id="26" name="MILESTONE 3 FINAL DUE (All)" color="#C77700" meeting="true" start="2026-12-02" duration="0" complete="0" expand="true">
+</task>
+</task>
+</tasks>
+<resources><resource id="0" name="Dhruva Ravindran (A)" function="Default:0" contacts="dsr1378@rit.edu" phone=""/><resource id="1" name="Abdullojon Ziyaev (B)" function="Default:0" contacts="za9369@rit.edu" phone=""/><resource id="2" name="Safiia Musaeva (C)" function="Default:0" contacts="sm5383@rit.edu" phone=""/><resource id="3" name="Abdullah Naseem (D)" function="Default:0" contacts="afn5363@rit.edu" phone=""/><resource id="4" name="Swati Poojary (E)" function="Default:0" contacts="sp6056@rit.edu" phone=""/></resources>
+<allocations><allocation task-id="1" resource-id="0" function="Default:0" responsible="true" load="100.0"/><allocation task-id="2" resource-id="1" function="Default:0" responsible="true" load="100.0"/><allocation task-id="3" resource-id="1" function="Default:0" responsible="true" load="100.0"/><allocation task-id="3" resource-id="2" function="Default:0" responsible="false" load="100.0"/><allocation task-id="4" resource-id="3" function="Default:0" responsible="true" load="100.0"/><allocation task-id="4" resource-id="4" function="Default:0" responsible="false" load="100.0"/><allocation task-id="5" resource-id="0" function="Default:0" responsible="true" load="100.0"/><allocation task-id="6" resource-id="0" function="Default:0" responsible="true" load="100.0"/><allocation task-id="6" resource-id="1" function="Default:0" responsible="false" load="100.0"/><allocation task-id="6" resource-id="2" function="Default:0" responsible="false" load="100.0"/><allocation task-id="6" resource-id="3" function="Default:0" responsible="false" load="100.0"/><allocation task-id="6" resource-id="4" function="Default:0" responsible="false" load="100.0"/><allocation task-id="7" resource-id="0" function="Default:0" responsible="true" load="100.0"/><allocation task-id="7" resource-id="1" function="Default:0" responsible="false" load="100.0"/><allocation task-id="7" resource-id="2" function="Default:0" responsible="false" load="100.0"/><allocation task-id="7" resource-id="3" function="Default:0" responsible="false" load="100.0"/><allocation task-id="7" resource-id="4" function="Default:0" responsible="false" load="100.0"/><allocation task-id="8" resource-id="1" function="Default:0" responsible="true" load="100.0"/><allocation task-id="9" resource-id="2" function="Default:0" responsible="true" load="100.0"/><allocation task-id="10" resource-id="3" function="Default:0" responsible="true" load="100.0"/><allocation task-id="11" resource-id="3" function="Default:0" responsible="true" load="100.0"/><allocation task-id="12" resource-id="2" function="Default:0" responsible="true" load="100.0"/><allocation task-id="12" resource-id="3" function="Default:0" responsible="false" load="100.0"/><allocation task-id="13" resource-id="4" function="Default:0" responsible="true" load="100.0"/><allocation task-id="14" resource-id="2" function="Default:0" responsible="true" load="100.0"/><allocation task-id="14" resource-id="4" function="Default:0" responsible="false" load="100.0"/><allocation task-id="15" resource-id="0" function="Default:0" responsible="true" load="100.0"/><allocation task-id="15" resource-id="1" function="Default:0" responsible="false" load="100.0"/><allocation task-id="15" resource-id="2" function="Default:0" responsible="false" load="100.0"/><allocation task-id="15" resource-id="3" function="Default:0" responsible="false" load="100.0"/><allocation task-id="15" resource-id="4" function="Default:0" responsible="false" load="100.0"/><allocation task-id="16" resource-id="0" function="Default:0" responsible="true" load="100.0"/><allocation task-id="17" resource-id="0" function="Default:0" responsible="true" load="100.0"/><allocation task-id="17" resource-id="1" function="Default:0" responsible="false" load="100.0"/><allocation task-id="17" resource-id="2" function="Default:0" responsible="false" load="100.0"/><allocation task-id="17" resource-id="3" function="Default:0" responsible="false" load="100.0"/><allocation task-id="17" resource-id="4" function="Default:0" responsible="false" load="100.0"/><allocation task-id="18" resource-id="2" function="Default:0" responsible="true" load="100.0"/><allocation task-id="19" resource-id="3" function="Default:0" responsible="true" load="100.0"/><allocation task-id="20" resource-id="4" function="Default:0" responsible="true" load="100.0"/><allocation task-id="21" resource-id="1" function="Default:0" responsible="true" load="100.0"/><allocation task-id="22" resource-id="0" function="Default:0" responsible="true" load="100.0"/><allocation task-id="23" resource-id="0" function="Default:0" responsible="true" load="100.0"/><allocation task-id="23" resource-id="1" function="Default:0" responsible="false" load="100.0"/><allocation task-id="23" resource-id="2" function="Default:0" responsible="false" load="100.0"/><allocation task-id="23" resource-id="3" function="Default:0" responsible="false" load="100.0"/><allocation task-id="23" resource-id="4" function="Default:0" responsible="false" load="100.0"/><allocation task-id="24" resource-id="0" function="Default:0" responsible="true" load="100.0"/><allocation task-id="24" resource-id="4" function="Default:0" responsible="false" load="100.0"/><allocation task-id="25" resource-id="0" function="Default:0" responsible="true" load="100.0"/><allocation task-id="26" resource-id="0" function="Default:0" responsible="true" load="100.0"/><allocation task-id="26" resource-id="1" function="Default:0" responsible="false" load="100.0"/><allocation task-id="26" resource-id="2" function="Default:0" responsible="false" load="100.0"/><allocation task-id="26" resource-id="3" function="Default:0" responsible="false" load="100.0"/><allocation task-id="26" resource-id="4" function="Default:0" responsible="false" load="100.0"/></allocations>
+<vacations/><previous/><roles roleset-name="Default"/></project>
