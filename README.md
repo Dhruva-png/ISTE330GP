@@ -6,7 +6,7 @@ ISTE 330 Database Connectivity and Access - Group 1
 |---|---|---|
 | Ravindran, Dhruva | dsr1378 | Project Lead and Documentation |
 | Ziyaev, Abdullojon | za9369 | Database Architect |
-| Musaeva, Safiia | sm5383 | Database Logic and Sample Data |
+| Nathershah, Faizahnadir | fn6379 | Database Logic and Sample Data |
 | Naseem, Abdullah | afn5363 | Java Back-End (JDBC) |
 | Poojary, Swati | sp6056 | Java Front-End, Reports and Testing |
 
